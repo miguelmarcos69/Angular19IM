@@ -39,5 +39,14 @@ export class ProductService {
     return response.json();
   }
 
+  async getProductById(id: number): Promise<any> {
+    const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`);
+    return res.json();
+  }
+
+  async obtenerProductosRelacionados(id: number): Promise<any[]> {
+    const res = await fetch(`https://api.escuelajs.co/api/v1/categories/${id}/products`);
+    return res.json();
+  }
 
 }

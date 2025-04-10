@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
@@ -45,7 +45,8 @@ export class HomeComponent {
     private dialog: MatDialog,
     private router: Router,
     private productService: ProductService,
-    private fb: FormBuilder
+    private route: ActivatedRoute
+
   ) {
 
     this.cargarProductos();
@@ -113,6 +114,9 @@ export class HomeComponent {
   }
   cerrarDialogo() {
     this.dialog.closeAll();
+  }
+  verDetalle(id: number) {
+    this.router.navigate(['/product', id], { relativeTo: this.route });
   }
 
 

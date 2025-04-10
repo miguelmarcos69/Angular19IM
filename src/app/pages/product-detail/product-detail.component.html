@@ -1,1 +1,36 @@
-<p>product-detail works!</p>
+<div *ngIf="producto">
+
+  <mat-card class="product-card" >
+
+    <mat-card-content >
+      <img class="img" [src]="producto.images[0]" style="width: 200px;" />
+
+      <h1>{{ producto.title }}</h1>
+      <p>{{ producto.description }}</p>
+      <p class="ref">REF: {{ producto.id }}</p>
+      <h2 class="price">{{ producto.price }}$</h2>
+      <span class="badge">{{ producto.category?.name }}</span>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-grid-list cols="4" rowHeight="2:1">
+    <div class="related-title">Productos relacionados:</div>
+
+    <div *ngFor="let p of relatedProducts">
+      <mat-grid-tile>
+        <mat-card class="product-card" >
+
+          <img [src]="p.images[0]" alt="{{ p.title }}"
+            (click)="verDetalle(p.id)"
+            style="width: 200px;" />
+          <mat-card-content>
+            <p>{{ p.title }}</p>
+
+          </mat-card-content>
+        </mat-card>
+
+      </mat-grid-tile>
+
+    </div>
+  </mat-grid-list>
+</div>
