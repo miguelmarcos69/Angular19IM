@@ -1,0 +1,58 @@
+.header-bar {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+
+  .spacer {
+    flex: 1;
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 12px;
+
+  img {
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+  }
+
+  mat-card-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .price {
+    margin-top: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 2;
+  }
+}

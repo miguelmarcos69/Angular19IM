@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Nuevo producto</h2>
+<form [formGroup]="productForm" (ngSubmit)="save()" mat-dialog-content>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Título</mat-label>
+    <input matInput formControlName="title" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Descripción</mat-label>
+    <input matInput formControlName="description" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Precio</mat-label>
+    <input matInput formControlName="price" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>URL Imagen</mat-label>
+    <input matInput formControlName="image" />
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-stroked-button type="button" (click)="cancel()">Cancelar</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="productForm.invalid">Aceptar</button>
+  </div>
+</form>
